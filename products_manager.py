@@ -46,7 +46,7 @@ def view_all_products():
     print("\nDaftar Produk:")
     print("{:<4} {:<20} {:>10} {:>10} {:>8}".format("ID", "Nama", "Modal", "Jual", "Stok"))
     for p in products:
-        print("{:<4} {:<20} {:>10.2f} {:>10.2f} {:>8}".format(p["id"], p["name"], p["harga_modal"], p["harga_juga"], p["stok"]))
+        print("{:<4} {:<20} {:>10.2f} {:>10.2f} {:>8}".format(p["id"], p["name"], p["harga_modal"], p["harga_jual"], p["stok"]))
     print()
 
 def find_product_by_id(pid):
