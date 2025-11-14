@@ -22,7 +22,7 @@ def add_product():
         harga_jual = float(input("Harga jual: ").strip())
         stok = int(input("Stok awal: ").strip())
     except ValueError:
-        print("Input angka tidak valid.")
+        print("Input angka tidak valid. Tolong isi dengan benar.")
         return
 
     product = {
@@ -35,7 +35,7 @@ def add_product():
     }
     products.append(product)
     save_products(products)
-    print(f"Produk ditambahkan: {product}")
+    print(f"Produk ditambahkan: {product['name']}")
 
 def view_all_products():
     products = list_products()
@@ -44,9 +44,25 @@ def view_all_products():
         return
 
     print("\nDaftar Produk:")
-    print("{:<4} {:<20} {:>10} {:>10} {:>8}".format("ID", "Nama", "Modal", "Jual", "Stok"))
+
+    col_id = 4
+    col_name = 20
+    col_modal = 10
+    col_jual = 10
+    col_stok = 8
+
+    header = ["ID", "Nama", "Modal", "Jual", "Stok"]
+    header_format = f"| {{:<{col_id}}} | {{:<{col_name}}} | {{:>{col_modal}}} | {{:>{col_jual}}} | {{:>{col_stok}}} |"
+
+    separator = "+" + "-" * (col_id + 2) + "+" + "-" * (col_name + 2) + "+" + "-" * (col_modal + 2) + "+" + "-" * (col_jual + 2) + "+" + "-" * (col_stok + 2) + "+"
+
+    print(separator)
+    print(header_format.format(*header))
+    print(separator)
+
     for p in products:
-        print("{:<4} {:<20} {:>10.2f} {:>10.2f} {:>8}".format(p["id"], p["name"], p["harga_modal"], p["harga_jual"], p["stok"]))
+        print(f"| {{:<{col_id}}} | {{:<{col_name}}} | {{:>{col_modal}.2f}} | {{:>{col_jual}.2f}} | {{:>{col_stok}}} |".format(p["id"], p["name"], p["harga_modal"], p["harga_jual"], p["stok"]))
+    print(separator)
     print()
 
 def find_product_by_id(pid):
