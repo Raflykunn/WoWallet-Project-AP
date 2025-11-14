@@ -24,7 +24,7 @@ def main():
             print("Keluar dari aplikasi. Sampai jumpa!")
             break
         else:
-            print("Pilihan tidak valid.")
+            print("Pilihan tidak valid. Tolong masukkan 1 atau 2.")
 
 if __name__ == "__main__":
     main()

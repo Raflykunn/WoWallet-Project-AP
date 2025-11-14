@@ -7,10 +7,14 @@ def login(role_expected):
     username = input("Username: ").strip()
     password = input("Password: ").strip()
 
+    if username == "" or password == "":
+        print("Username dan password tidak boleh kosong.")
+        return None
+
     for u in users:
         if u["username"] == username and u["password"] == password and u["role"].lower() == role_expected.lower():
             print(f"Login sukses sebagai {role_expected}.")
             return u
 
-    print("Login gagal: username/password/role salah.")
+    print("Login gagal: username atau password salah.")
     return None

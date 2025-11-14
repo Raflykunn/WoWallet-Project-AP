@@ -26,7 +26,7 @@ def sell_product(logged_user):
         pid = int(input("Masukkan ID produk yang dibeli: ").strip())
         qty = int(input("Masukkan jumlah beli: ").strip())
     except ValueError:
-        print("Input tidak valid.")
+        print("Input tidak valid. Tolong masukkan angka.")
         return
 
     p = find_product_by_id(pid)
